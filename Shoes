@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أحذية أنيقة للبيع - توصيل مجاني في المغرب</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* الأساسيات */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* الهيدر */
+        header {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+        
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        /* قسم المنتج */
+        .product-section {
+            padding: 50px 0;
+            background-color: white;
+        }
+        
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .product-images {
+            flex: 1;
+            min-width: 300px;
+            max-width: 500px;
+        }
+        
+        .main-image {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        
+        .image-gallery {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            padding: 10px 0;
+        }
+        
+        .image-gallery img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.3s;
+            border: 2px solid transparent;
+        }
+        
+        .image-gallery img:hover, .image-gallery img.active {
+            transform: scale(1.05);
+            border-color: #2575fc;
+        }
+        
+        .product-details {
+            flex: 1;
+            min-width: 300px;
+            max-width: 500px;
+        }
+        
+        .product-details h2 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        
+        .product-details p {
+            margin-bottom: 20px;
+            color: #555;
+        }
+        
+        .price-section {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 25px 0;
+            text-align: center;
+        }
+        
+        .price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #e74c3c;
+            margin-bottom: 10px;
+        }
+        
+        .shipping {
+            font-size: 1.1rem;
+            color: #27ae60;
+            margin-bottom: 5px;
+        }
+        
+        .contact-section {
+            text-align: center;
+            margin: 25px 0;
+        }
+        
+        .contact-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .contact-number, .whatsapp-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .contact-number {
+            background-color: #2ecc71;
+            color: white;
+        }
+        
+        .whatsapp-button {
+            background-color: #25D366;
+            color: white;
+        }
+        
+        .contact-number:hover {
+            background-color: #27ae60;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(46, 204, 113, 0.4);
+        }
+        
+        .whatsapp-button:hover {
+            background-color: #128C7E;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(37, 211, 102, 0.4);
+        }
+        
+        .features {
+            margin-top: 30px;
+        }
+        
+        .features h3 {
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        
+        .features ul {
+            list-style-type: none;
+        }
+        
+        .features li {
+            padding: 8px 0;
+            position: relative;
+            padding-right: 25px;
+        }
+        
+        .features li:before {
+            content: "✓";
+            position: absolute;
+            right: 0;
+            color: #2ecc71;
+            font-weight: bold;
+        }
+        
+        .urgency {
+            background-color: #fff8e1;
+            border-right: 4px solid #ffc107;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .urgency i {
+            color: #ff9800;
+            margin-left: 5px;
+        }
+        
+        /* فوتر */
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 50px;
+        }
+        
+        /* التجاوب مع الشاشات الصغيرة */
+        @media (max-width: 768px) {
+            .product-container {
+                flex-direction: column;
+            }
+            
+            header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .price {
+                font-size: 2rem;
+            }
+            
+            .contact-number, .whatsapp-button {
+                font-size: 1.1rem;
+                padding: 12px 25px;
+            }
+            
+            .contact-buttons {
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .contact-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>أحذية أنيقة وعصرية</h1>
+            <p>جودة عالية بتصميم متميز يناسب جميع المناسبات</p>
+        </div>
+    </header>
+    
+    <section class="product-section">
+        <div class="container">
+            <div class="urgency">
+                <i class="fas fa-bolt"></i>
+                <strong>عرض محدود!</strong> اطلب الآن واحصل على توصيل سريع لجميع أنحاء المغرب
+            </div>
+            
+            <div class="product-container">
+                <div class="product-images">
+                    <img id="mainImage" src="https://up6.cc/2025/10/176453950598971.jpg" alt="حذاء أنيق" class="main-image">
+                    <div class="image-gallery">
+                        <img src="https://up6.cc/2025/10/176453950598971.jpg" alt="حذاء أنيق - صورة 1" onclick="changeImage(this)" class="active">
+                        <img src="https://up6.cc/2025/10/176453950599222.jpg" alt="حذاء أنيق - صورة 2" onclick="changeImage(this)">
+                        <img src="https://up6.cc/2025/10/176453950600423.jpg" alt="حذاء أنيق - صورة 3" onclick="changeImage(this)">
+                        <img src="https://up6.cc/2025/10/17645395060344.jpg" alt="حذاء أنيق - صورة 4" onclick="changeImage(this)">
+                        <img src="https://up6.cc/2025/10/176453950606585.jpg" alt="حذاء أنيق - صورة 5" onclick="changeImage(this)">
+                    </div>
+                </div>
+                
+                <div class="product-details">
+                    <h2>حذاء أنيق وعصري</h2>
+                    <p>تمتع بأناقة لا تضاهى مع هذا الحذاء المصمم بعناية فائقة. يجمع بين الراحة والأناقة ليكون الخيار الأمثل لمناسباتك الخاصة.</p>
+                    
+                    <div class="price-section">
+                        <div class="price">199 درهم</div>
+                        <div class="shipping">+20 درهم للتوصيل لجميع أنحاء المغرب</div>
+                        <div class="shipping">المجموع: 219 درهم</div>
+                    </div>
+                    
+                    <div class="contact-section">
+                        <h3>لطلب المنتج:</h3>
+                        <div class="contact-buttons">
+                            <a href="tel:212604439590" class="contact-number">
+                                <i class="fas fa-phone"></i>
+                                اتصل للطلب: 212604439590
+                            </a>
+                            <a href="https://wa.me/212604439590?text=مرحباً، أريد طلب الحذاء المعروض بسعر 199 درهم" target="_blank" class="whatsapp-button">
+                                <i class="fab fa-whatsapp"></i>
+                                طلب عبر الواتساب
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="features">
+                        <h3>مميزات المنتج:</h3>
+                        <ul>
+                            <li>جودة عالية في التصنيع</li>
+                            <li>تصميم أنيق وعصري</li>
+                            <li>مريح للارتداء طوال اليوم</li>
+                            <li>يناسب مختلف المناسبات</li>
+                            <li>متوفر بمقاسات مختلفة</li>
+                            <li>توصيل سريع لجميع أنحاء المغرب</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <p>© 2023 جميع الحقوق محفوظة - أحذية أنيقة</p>
+        </div>
+    </footer>
+    
+    <script>
+        function changeImage(element) {
+            // تغيير الصورة الرئيسية
+            document.getElementById('mainImage').src = element.src;
+            
+            // إزالة الصف النشط من جميع الصور
+            var images = document.querySelectorAll('.image-gallery img');
+            images.forEach(function(img) {
+                img.classList.remove('active');
+            });
+            
+            // إضافة الصف النشط للصورة المختارة
+            element.classList.add('active');
+        }
+        
+        // إضافة تأثير عند التمرير
+        window.addEventListener('scroll', function() {
+            var header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.padding = '10px 0';
+            } else {
+                header.style.padding = '20px 0';
+            }
+        });
+    </script>
+</body>
+</html>
